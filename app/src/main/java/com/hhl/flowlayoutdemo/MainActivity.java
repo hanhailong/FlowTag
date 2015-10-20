@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                     Snackbar.make(parent, "移动研发:" + sb.toString(), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                }else{
+                    Snackbar.make(parent, "没有选择标签", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
             }
         });
@@ -90,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
                         sb.append(":");
                     }
                     Snackbar.make(parent, "移动研发:" + sb.toString(), Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }else{
+                    Snackbar.make(parent, "没有选择标签", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
             }

@@ -248,10 +248,10 @@ public class FlowTagLayout extends ViewGroup {
                         if (mCheckedTagArray.get(j)) {
                             mCheckedTagArray.put(j, false);
                             childView.setSelected(false);
-                            return;
+                        } else {
+                            mCheckedTagArray.put(j, true);
+                            childView.setSelected(true);
                         }
-                        mCheckedTagArray.put(j, true);
-                        childView.setSelected(true);
                         //回调
                         if (mOnTagSelectListener != null) {
                             List<Integer> list = new ArrayList<Integer>();
