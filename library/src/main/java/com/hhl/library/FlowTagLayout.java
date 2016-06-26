@@ -210,12 +210,31 @@ public class FlowTagLayout extends ViewGroup {
     private void reloadData() {
         removeAllViews();
 
+        boolean isSetted = false;
         for (int i = 0; i < mAdapter.getCount(); i++) {
             final int j = i;
             mCheckedTagArray.put(i, false);
             final View childView = mAdapter.getView(i, null, this);
             addView(childView, new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            final int finalI = i;
+
+            if (mAdapter instanceof OnInitSelectedPosition) {
+                boolean isSelected = ((OnInitSelectedPosition) mAdapter).isSelectedPosition(i);
+                //判断一下模式
+                if (mTagCheckMode == FLOW_TAG_CHECKED_SINGLE) {
+                    //单选只有第一个起作用
+                    if (isSelected && !isSetted) {
+                        mCheckedTagArray.put(i, true);
+                        childView.setSelected(true);
+                        isSetted = true;
+                    }
+                } else if (mTagCheckMode == FLOW_TAG_CHECKED_MULTI) {
+                    if (isSelected) {
+                        mCheckedTagArray.put(i, true);
+                        childView.setSelected(true);
+                    }
+                }
+            }
+
             childView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
