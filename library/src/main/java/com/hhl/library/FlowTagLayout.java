@@ -62,6 +62,11 @@ public class FlowTagLayout extends ViewGroup {
     private int mTagCheckMode = FLOW_TAG_CHECKED_NONE;
 
     /**
+     * 标签流式布局最多选中Tag数,默认为Integer.MAX_VALUE
+     */
+    private int mMaxSelectTagNum = Integer.MAX_VALUE;
+
+    /**
      * 存储选中的tag
      */
     private SparseBooleanArray mCheckedTagArray = new SparseBooleanArray();
@@ -268,6 +273,15 @@ public class FlowTagLayout extends ViewGroup {
                             mCheckedTagArray.put(j, false);
                             childView.setSelected(false);
                         } else {
+                            int selectTagNum = 0;
+                            for (int k = 0; k < mAdapter.getCount(); k++) {
+                                if (mCheckedTagArray.get(k)) {
+                                    selectTagNum++;
+                                }
+                            }
+                            if (selectTagNum >= mMaxSelectTagNum) {
+                                return;
+                            }
                             mCheckedTagArray.put(j, true);
                             childView.setSelected(true);
                         }
@@ -331,5 +345,14 @@ public class FlowTagLayout extends ViewGroup {
      */
     public void setTagCheckedMode(int tagMode) {
         this.mTagCheckMode = tagMode;
+    }
+
+    /**
+     * 设置最多可选标签数
+     *
+     * @param num
+     */
+    public void setMaxSelectTagNum(int num) {
+        this.mMaxSelectTagNum = num;
     }
 }
