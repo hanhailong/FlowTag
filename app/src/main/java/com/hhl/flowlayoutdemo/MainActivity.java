@@ -106,6 +106,17 @@ public class MainActivity extends AppCompatActivity {
         initSizeData();
 
         initMobileData();
+
+        //清除所有已经被选择的选项
+        findViewById(R.id.bt_clear_all)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                        mColorFlowTagLayout.clearAllOption();
+                        mSizeFlowTagLayout.clearAllOption();
+                        mMobileFlowTagLayout.clearAllOption();
+                    }
+                });
     }
 
     private void initMobileData() {

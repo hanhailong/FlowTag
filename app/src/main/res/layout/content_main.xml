@@ -68,6 +68,13 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/bt_clear_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="清除所有选项"/>
+
     </LinearLayout>
 
 </ScrollView>
