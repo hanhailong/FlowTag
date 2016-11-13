@@ -215,7 +215,9 @@ public class FlowTagLayout extends ViewGroup {
             final int j = i;
             mCheckedTagArray.put(i, false);
             final View childView = mAdapter.getView(i, null, this);
-            addView(childView, new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+//            addView(childView,
+//              new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));//这个构造方法所然能使用但是编译器会报错
+            addView(childView, new MarginLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)));
 
             if (mAdapter instanceof OnInitSelectedPosition) {
                 boolean isSelected = ((OnInitSelectedPosition) mAdapter).isSelectedPosition(i);
@@ -284,6 +286,22 @@ public class FlowTagLayout extends ViewGroup {
                     }
                 }
             });
+        }
+    }
+
+    /**
+     * 清除所有被选择的选项
+     *
+     * @author https://github.com/wanyt
+     *
+     * @time 2016年11月13日16:07:23
+     *
+     */
+    public void clearAllOption(){
+        for (int i = 0; i < mAdapter.getCount(); i++) {
+            if (mCheckedTagArray.get(i)) {
+                getChildAt(i).setSelected(false);
+            }
         }
     }
 
