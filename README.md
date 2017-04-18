@@ -5,7 +5,7 @@ Android流式布局，支持点击、单选、多选等，适合用于产品标�
 
 ****
 
-##特色
+## 特色
 
 * 填充数据和ListView、GridView用法一样使用Adapter，更新数据直接通过adapter.notifyDataChanged来更新
 * 支持点击、单选、多选事件
@@ -15,13 +15,13 @@ Android流式布局，支持点击、单选、多选等，适合用于产品标�
 
 ****
 
-#效果图
+# 效果图
 
 ![image](https://github.com/hanhailong/AndroidStudyResources/blob/master/screenshot/flow_tag.gif?raw=true)
 
-#版本更新
+# 版本更新
 
-##2016/6/26
+## 2016/6/26
 * 添加初始化选中标签
     * 单选模式下初始化标签只有第一个起作用
     * 多选模式下只要设置初始化选中就可以
@@ -41,11 +41,11 @@ Android流式布局，支持点击、单选、多选等，适合用于产品标�
 			 }
     
 
-#TODO
+# TODO
 
 * 复用View...
 
 
-#联系我
+# 联系我
 
 如果大家在使用过程中遇到任何问题都可以联系我，谢谢！！！最好是发邮件，我每天都会抽时间看一下我的邮箱：hanhailong.cool@163.com
